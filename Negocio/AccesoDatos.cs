@@ -14,8 +14,8 @@ namespace Negocio
 
         public List<Articulo> listar()
         {
-            
-            return;
+            List<Articulo> lista = new List<Articulo>();
+            return lista;
         }
 
         public void agregar()
