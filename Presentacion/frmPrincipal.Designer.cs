@@ -48,15 +48,16 @@
             // 
             // dgvArticulos
             // 
+            this.dgvArticulos.BackgroundColor = System.Drawing.Color.White;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.Location = new System.Drawing.Point(12, 25);
             this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.Size = new System.Drawing.Size(542, 413);
+            this.dgvArticulos.Size = new System.Drawing.Size(643, 413);
             this.dgvArticulos.TabIndex = 0;
             // 
             // pbxArticulo
             // 
-            this.pbxArticulo.Location = new System.Drawing.Point(688, 25);
+            this.pbxArticulo.Location = new System.Drawing.Point(883, 25);
             this.pbxArticulo.Name = "pbxArticulo";
             this.pbxArticulo.Size = new System.Drawing.Size(247, 230);
             this.pbxArticulo.TabIndex = 1;
@@ -74,7 +75,7 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(774, 274);
+            this.lblDescripcion.Location = new System.Drawing.Point(969, 274);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(66, 13);
             this.lblDescripcion.TabIndex = 3;
@@ -83,7 +84,7 @@
             // lvDescripcionArt
             // 
             this.lvDescripcionArt.HideSelection = false;
-            this.lvDescripcionArt.Location = new System.Drawing.Point(700, 290);
+            this.lvDescripcionArt.Location = new System.Drawing.Point(895, 290);
             this.lvDescripcionArt.Name = "lvDescripcionArt";
             this.lvDescripcionArt.Size = new System.Drawing.Size(216, 148);
             this.lvDescripcionArt.TabIndex = 4;
@@ -92,7 +93,7 @@
             // 
             // bntAgregar
             // 
-            this.bntAgregar.Location = new System.Drawing.Point(560, 25);
+            this.bntAgregar.Location = new System.Drawing.Point(661, 25);
             this.bntAgregar.Name = "bntAgregar";
             this.bntAgregar.Size = new System.Drawing.Size(75, 37);
             this.bntAgregar.TabIndex = 5;
@@ -102,7 +103,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(561, 68);
+            this.btnEliminar.Location = new System.Drawing.Point(662, 68);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 37);
             this.btnEliminar.TabIndex = 6;
@@ -111,7 +112,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(561, 111);
+            this.btnModificar.Location = new System.Drawing.Point(662, 111);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 37);
             this.btnModificar.TabIndex = 7;
@@ -120,7 +121,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(560, 154);
+            this.button4.Location = new System.Drawing.Point(661, 154);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 37);
             this.button4.TabIndex = 8;
@@ -165,7 +166,7 @@
             // lblDescripcionArt
             // 
             this.lblDescripcionArt.AutoSize = true;
-            this.lblDescripcionArt.Location = new System.Drawing.Point(790, 442);
+            this.lblDescripcionArt.Location = new System.Drawing.Point(985, 442);
             this.lblDescripcionArt.Name = "lblDescripcionArt";
             this.lblDescripcionArt.Size = new System.Drawing.Size(35, 13);
             this.lblDescripcionArt.TabIndex = 13;
@@ -175,7 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 545);
+            this.ClientSize = new System.Drawing.Size(1166, 545);
             this.Controls.Add(this.lblDescripcionArt);
             this.Controls.Add(this.btnBusquedaAvanzada);
             this.Controls.Add(this.btnBuscar);

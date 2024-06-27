@@ -38,7 +38,7 @@ namespace Presentacion
 
             dgvArticulos.Columns["Id"].Visible = false;
             dgvArticulos.Columns["UrlImagen"].Visible = false;
-            dgvArticulos.Columns["Descripcion"].Visible = false;
+
         }
     }
 }
