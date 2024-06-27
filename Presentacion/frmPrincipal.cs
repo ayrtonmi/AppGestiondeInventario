@@ -30,5 +30,15 @@ namespace Presentacion
             frmAgregar agregar = new frmAgregar();
             agregar.ShowDialog();
         }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            ArticuloDatos articulos = new ArticuloDatos();
+            dgvArticulos.DataSource = articulos.listar();
+
+            dgvArticulos.Columns["Id"].Visible = false;
+            dgvArticulos.Columns["UrlImagen"].Visible = false;
+            dgvArticulos.Columns["Descripcion"].Visible = false;
+        }
     }
 }
