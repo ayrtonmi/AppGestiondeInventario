@@ -26,10 +26,20 @@ namespace Presentacion
             busqueda.ShowDialog();
         }
 
+        private void cargarGrilla()
+        {
+            ArticuloDatos articulos = new ArticuloDatos();
+            listaArticulos = articulos.listar();
+            dgvArticulos.DataSource = listaArticulos;
+
+            cargarImagen(listaArticulos[0].UrlImagen);
+            cargarDescripcion(listaArticulos[0].Descripcion);
+        }
         private void bntAgregar_Click(object sender, EventArgs e)
         {
             frmAgregar agregar = new frmAgregar();
             agregar.ShowDialog();
+            cargarGrilla();
         }
 
         private void cargarImagen(string url)
@@ -59,15 +69,7 @@ namespace Presentacion
         }
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-
-            ArticuloDatos articulos = new ArticuloDatos();
-            listaArticulos = articulos.listar();
-            dgvArticulos.DataSource = listaArticulos;
-
-            cargarImagen(listaArticulos[0].UrlImagen);
-            cargarDescripcion(listaArticulos[0].Descripcion);
-            
-
+            cargarGrilla();
             dgvArticulos.Columns["Id"].Visible = false;
             dgvArticulos.Columns["UrlImagen"].Visible = false;
             dgvArticulos.Columns["Descripcion"].Visible = false;
