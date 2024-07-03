@@ -58,9 +58,9 @@
             // 
             // pbxArticulo
             // 
-            this.pbxArticulo.Location = new System.Drawing.Point(883, 25);
+            this.pbxArticulo.Location = new System.Drawing.Point(873, 25);
             this.pbxArticulo.Name = "pbxArticulo";
-            this.pbxArticulo.Size = new System.Drawing.Size(247, 397);
+            this.pbxArticulo.Size = new System.Drawing.Size(266, 397);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxArticulo.TabIndex = 1;
             this.pbxArticulo.TabStop = false;
@@ -141,7 +141,7 @@
             // 
             this.btnBusquedaAvanzada.Location = new System.Drawing.Point(375, 471);
             this.btnBusquedaAvanzada.Name = "btnBusquedaAvanzada";
-            this.btnBusquedaAvanzada.Size = new System.Drawing.Size(120, 23);
+            this.btnBusquedaAvanzada.Size = new System.Drawing.Size(120, 32);
             this.btnBusquedaAvanzada.TabIndex = 12;
             this.btnBusquedaAvanzada.Text = "Búsqueda Avanzada";
             this.btnBusquedaAvanzada.UseVisualStyleBackColor = true;
