@@ -91,7 +91,7 @@
             this.bntAgregar.Location = new System.Drawing.Point(560, 25);
             this.bntAgregar.Name = "bntAgregar";
             this.bntAgregar.Size = new System.Drawing.Size(75, 37);
-            this.bntAgregar.TabIndex = 5;
+            this.bntAgregar.TabIndex = 3;
             this.bntAgregar.Text = "Agregar";
             this.bntAgregar.UseVisualStyleBackColor = true;
             this.bntAgregar.Click += new System.EventHandler(this.bntAgregar_Click);
@@ -101,7 +101,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(561, 68);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 37);
-            this.btnEliminar.TabIndex = 6;
+            this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             // 
@@ -110,7 +110,7 @@
             this.btnModificar.Location = new System.Drawing.Point(561, 111);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 37);
-            this.btnModificar.TabIndex = 7;
+            this.btnModificar.TabIndex = 5;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             // 
@@ -129,14 +129,14 @@
             this.tbxBuscar.Location = new System.Drawing.Point(65, 444);
             this.tbxBuscar.Name = "tbxBuscar";
             this.tbxBuscar.Size = new System.Drawing.Size(304, 20);
-            this.tbxBuscar.TabIndex = 10;
+            this.tbxBuscar.TabIndex = 0;
             // 
             // btnBuscar
             // 
             this.btnBuscar.Location = new System.Drawing.Point(375, 444);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(120, 21);
-            this.btnBuscar.TabIndex = 11;
+            this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "OK";
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
@@ -145,7 +145,7 @@
             this.btnBusquedaAvanzada.Location = new System.Drawing.Point(375, 471);
             this.btnBusquedaAvanzada.Name = "btnBusquedaAvanzada";
             this.btnBusquedaAvanzada.Size = new System.Drawing.Size(120, 32);
-            this.btnBusquedaAvanzada.TabIndex = 12;
+            this.btnBusquedaAvanzada.TabIndex = 2;
             this.btnBusquedaAvanzada.Text = "Búsqueda Avanzada";
             this.btnBusquedaAvanzada.UseVisualStyleBackColor = true;
             this.btnBusquedaAvanzada.Click += new System.EventHandler(this.btnBusquedaAvanzada_Click);

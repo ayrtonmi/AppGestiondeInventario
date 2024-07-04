@@ -17,24 +17,29 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("select Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, ImagenUrl, Precio from ARTICULOS A, CATEGORIAS C, MARCAS M where A.IdMarca= M.Id and A.IdCategoria=C.Id");
+                datos.setearConsulta("select A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, ImagenUrl, Precio from ARTICULOS A, CATEGORIAS C, MARCAS M where A.IdMarca= M.Id and A.IdCategoria=C.Id");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
                     Articulo articulo = new Articulo();
-                    articulo.Codigo = (string)datos.Lector["Codigo"];
-                    articulo.Nombre = (string)datos.Lector["Nombre"];
-                    articulo.Descripcion = (string)datos.Lector["Descripcion"];
-                    
-                    articulo.Marca = new Marca();
-                    articulo.Marca.Nombre= (string)datos.Lector["Marca"];
-                    
-                    articulo.Categoria = new Categoria();
-                    articulo.Categoria.Descripcion = (string)datos.Lector["Categoria"];
 
-                    articulo.UrlImagen = (string)datos.Lector["ImagenUrl"];
-                    articulo.Precio =(decimal) datos.Lector["Precio"];
+                    articulo.Id = (int)datos.Lector["Id"];
+                    articulo.Codigo = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Codigo")) ? null : (string)datos.Lector["Codigo"];
+                    articulo.Nombre = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Nombre")) ? null : (string)datos.Lector["Nombre"];
+                    articulo.Descripcion = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Descripcion")) ? null : (string)datos.Lector["Descripcion"];
+
+                    articulo.Marca = new Marca();
+                    articulo.Marca.Nombre = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Marca")) ? null : (string)datos.Lector["Marca"];
+
+                    articulo.Categoria = new Categoria();
+                    articulo.Categoria.Descripcion = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Categoria")) ? null : (string)datos.Lector["Categoria"];
+
+                    articulo.UrlImagen = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("ImagenUrl")) ? null : (string)datos.Lector["ImagenUrl"];
+
+                    
+                    if (!(datos.Lector["Precio"]is DBNull))
+                    articulo.Precio = (decimal)datos.Lector["Precio"];
 
                     listado.Add(articulo);
 
@@ -59,9 +64,14 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("insert into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl, Precio)values('" + nuevoArticulo.Codigo + "', '" + nuevoArticulo.Nombre + "', '" + nuevoArticulo.Descripcion + "',@IdMarca, @IdCategoria,'" + nuevoArticulo.UrlImagen + "'," + nuevoArticulo.Precio + ")");
+                datos.setearConsulta("insert into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl, Precio)values(@CodigoArt, @Nombre, @Descripcion,@IdMarca, @IdCategoria,@ImgUrl, @Precio");
+                datos.setearParametros("@CodigoArt", nuevoArticulo.Codigo);
+                datos.setearParametros("@Nombre", nuevoArticulo.Nombre);
+                datos.setearParametros("@Descripcion", nuevoArticulo.Descripcion);
                 datos.setearParametros("@IdMarca", nuevoArticulo.Marca.Id);
                 datos.setearParametros("@IdCategoria", nuevoArticulo.Categoria.Id);
+                datos.setearParametros("@ImUrl", nuevoArticulo.UrlImagen);
+                datos.setearParametros("@Precio", nuevoArticulo.Precio);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

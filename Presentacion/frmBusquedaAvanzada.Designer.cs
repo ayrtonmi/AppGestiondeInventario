@@ -44,7 +44,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(252, 127);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 37);
-            this.btnCancelar.TabIndex = 32;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -54,7 +54,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(252, 75);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 37);
-            this.btnAceptar.TabIndex = 31;
+            this.btnAceptar.TabIndex = 3;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             // 
@@ -84,7 +84,7 @@
             this.cbxCriterio.Location = new System.Drawing.Point(91, 72);
             this.cbxCriterio.Name = "cbxCriterio";
             this.cbxCriterio.Size = new System.Drawing.Size(121, 21);
-            this.cbxCriterio.TabIndex = 35;
+            this.cbxCriterio.TabIndex = 0;
             // 
             // lblRango
             // 
@@ -102,7 +102,7 @@
             this.cbxRango.Location = new System.Drawing.Point(91, 110);
             this.cbxRango.Name = "cbxRango";
             this.cbxRango.Size = new System.Drawing.Size(121, 21);
-            this.cbxRango.TabIndex = 37;
+            this.cbxRango.TabIndex = 1;
             // 
             // lblParametro
             // 
@@ -118,7 +118,7 @@
             this.textBox1.Location = new System.Drawing.Point(91, 148);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 39;
+            this.textBox1.TabIndex = 2;
             // 
             // frmBusquedaAvanzada
             // 

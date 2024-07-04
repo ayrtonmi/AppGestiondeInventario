@@ -29,11 +29,19 @@ namespace Presentacion
         private void cargarGrilla()
         {
             ArticuloDatos articulos = new ArticuloDatos();
-            listaArticulos = articulos.listar();
-            dgvArticulos.DataSource = listaArticulos;
+            try
+            {
+                listaArticulos = articulos.listar();
+                dgvArticulos.DataSource = listaArticulos;
 
-            cargarImagen(listaArticulos[0].UrlImagen);
-            cargarDescripcion(listaArticulos[0].Descripcion);
+                cargarImagen(listaArticulos[0].UrlImagen);
+                cargarDescripcion(listaArticulos[0].Descripcion);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
         private void bntAgregar_Click(object sender, EventArgs e)
         {
@@ -70,9 +78,9 @@ namespace Presentacion
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             cargarGrilla();
-            dgvArticulos.Columns["Id"].Visible = false;
-            dgvArticulos.Columns["UrlImagen"].Visible = false;
-            dgvArticulos.Columns["Descripcion"].Visible = false;
+           dgvArticulos.Columns["Id"].Visible = false;
+           dgvArticulos.Columns["UrlImagen"].Visible = false;
+           dgvArticulos.Columns["Descripcion"].Visible = false;
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
