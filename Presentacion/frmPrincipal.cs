@@ -101,5 +101,27 @@ namespace Presentacion
             modificacion.ShowDialog();
             cargarGrilla();
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ArticuloDatos articulo = new ArticuloDatos();
+            Articulo seleccionado;
+            try
+            {
+                DialogResult confirmacion=MessageBox.Show("¿Desea eliminar el artículo?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                
+                if (confirmacion == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    articulo.eliminarArticulo(seleccionado.Id);
+                    cargarGrilla();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
