@@ -33,9 +33,11 @@ namespace Presentacion
             {
                 listaArticulos = articulos.listar();
                 dgvArticulos.DataSource = listaArticulos;
+                dgvArticulos.ClearSelection();
 
                 cargarImagen(listaArticulos[0].UrlImagen);
                 cargarDescripcion(listaArticulos[0].Descripcion);
+                
             }
             catch (Exception ex)
             {
@@ -88,6 +90,16 @@ namespace Presentacion
             Articulo seleccion = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
             cargarImagen(seleccion.UrlImagen);
             cargarDescripcion(seleccion.Descripcion);
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo articuloSeleccionado;
+            articuloSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            frmAgregar modificacion = new frmAgregar(articuloSeleccionado);
+            modificacion.ShowDialog();
+            cargarGrilla();
         }
     }
 }
