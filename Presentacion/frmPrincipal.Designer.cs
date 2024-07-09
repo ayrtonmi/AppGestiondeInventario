@@ -36,11 +36,12 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.lblBuscar = new System.Windows.Forms.Label();
-            this.tbxBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnBusquedaAvanzada = new System.Windows.Forms.Button();
             this.txtDescripcionArt = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.lblBusqueda = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -125,14 +126,6 @@
             this.lblBuscar.TabIndex = 9;
             this.lblBuscar.Text = "Buscar:";
             // 
-            // tbxBuscar
-            // 
-            this.tbxBuscar.BackColor = System.Drawing.SystemColors.Control;
-            this.tbxBuscar.Location = new System.Drawing.Point(65, 444);
-            this.tbxBuscar.Name = "tbxBuscar";
-            this.tbxBuscar.Size = new System.Drawing.Size(304, 20);
-            this.tbxBuscar.TabIndex = 0;
-            // 
             // btnBuscar
             // 
             this.btnBuscar.Location = new System.Drawing.Point(375, 444);
@@ -141,6 +134,7 @@
             this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "OK";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnBusquedaAvanzada
             // 
@@ -174,16 +168,37 @@
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             // 
+            // txtBuscar
+            // 
+            this.txtBuscar.ForeColor = System.Drawing.Color.LightGray;
+            this.txtBuscar.Location = new System.Drawing.Point(65, 444);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(304, 20);
+            this.txtBuscar.TabIndex = 15;
+            this.txtBuscar.MouseEnter += new System.EventHandler(this.txtBuscar_MouseEnter);
+            this.txtBuscar.MouseLeave += new System.EventHandler(this.txtBuscar_MouseLeave);
+            // 
+            // lblBusqueda
+            // 
+            this.lblBusqueda.AutoSize = true;
+            this.lblBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBusqueda.ForeColor = System.Drawing.Color.LightGray;
+            this.lblBusqueda.Location = new System.Drawing.Point(62, 467);
+            this.lblBusqueda.Name = "lblBusqueda";
+            this.lblBusqueda.Size = new System.Drawing.Size(0, 13);
+            this.lblBusqueda.TabIndex = 16;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1166, 607);
+            this.ClientSize = new System.Drawing.Size(1166, 627);
+            this.Controls.Add(this.lblBusqueda);
+            this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnBusquedaAvanzada);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.tbxBuscar);
             this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
@@ -192,6 +207,8 @@
             this.Controls.Add(this.pbxArticulo);
             this.Controls.Add(this.dgvArticulos);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1182, 666);
+            this.MinimumSize = new System.Drawing.Size(1182, 666);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestor de Inventario";
@@ -215,11 +232,12 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Label lblBuscar;
-        private System.Windows.Forms.TextBox tbxBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnBusquedaAvanzada;
         private System.Windows.Forms.TextBox txtDescripcionArt;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Label lblBusqueda;
     }
 }
 

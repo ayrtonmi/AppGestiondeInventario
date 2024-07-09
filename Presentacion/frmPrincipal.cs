@@ -77,19 +77,28 @@ namespace Presentacion
                 txtDescripcionArt.Text = descripcion;
             }
         }
+
+        private void ocultarColumnas()
+        {
+            dgvArticulos.Columns["Id"].Visible = false;
+            dgvArticulos.Columns["UrlImagen"].Visible = false;
+            dgvArticulos.Columns["Descripcion"].Visible = false;
+        }
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             cargarGrilla();
-           dgvArticulos.Columns["Id"].Visible = false;
-           dgvArticulos.Columns["UrlImagen"].Visible = false;
-           dgvArticulos.Columns["Descripcion"].Visible = false;
+            ocultarColumnas();
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            Articulo seleccion = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            cargarImagen(seleccion.UrlImagen);
-            cargarDescripcion(seleccion.Descripcion);
+            if(dgvArticulos.CurrentRow != null)
+            {
+                Articulo seleccion = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                cargarImagen(seleccion.UrlImagen);
+                cargarDescripcion(seleccion.Descripcion);
+            }
+            
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -122,6 +131,37 @@ namespace Presentacion
 
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            List<Articulo> busqueda;
+            string filtro = txtBuscar.Text;
+
+            if (filtro != "")
+            {
+                busqueda = listaArticulos.FindAll(x => x.Nombre.ToLower().Contains(filtro.ToLower()) || x.Marca.Nombre.ToLower().Contains(filtro.ToLower()) || x.Categoria.Descripcion.ToLower().Contains(filtro.ToLower()));
+
+            }
+            else {
+                busqueda = listaArticulos;
+            }
+
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = busqueda;
+            ocultarColumnas();
+        }
+
+        
+
+        private void txtBuscar_MouseLeave(object sender, EventArgs e)
+        {
+            lblBusqueda.Text = "";
+        }
+
+        private void txtBuscar_MouseEnter(object sender, EventArgs e)
+        {
+            lblBusqueda.Text = "Ingrese nombre, marca o categoría del artículo.";
         }
     }
 }
