@@ -22,7 +22,7 @@ namespace Presentacion
 
         private void btnBusquedaAvanzada_Click(object sender, EventArgs e)
         {
-            frmBusquedaAvanzada busqueda = new frmBusquedaAvanzada();
+            frmBusquedaAvanzada busqueda = new frmBusquedaAvanzada(dgvArticulos);
             busqueda.ShowDialog();
         }
 
@@ -36,7 +36,8 @@ namespace Presentacion
                 dgvArticulos.ClearSelection();
 
                 cargarImagen(listaArticulos[0].UrlImagen);
-                cargarDescripcion(listaArticulos[0].Descripcion);
+                cargarDetalle(listaArticulos[0].Marca.Nombre,listaArticulos[0].Nombre, listaArticulos[0].Descripcion, listaArticulos[0].Precio);
+
                 
             }
             catch (Exception ex)
@@ -65,16 +66,17 @@ namespace Presentacion
                 pbxArticulo.Load("https://archive.org/download/placeholder-image/placeholder-image.jpg");
             }
         }
-        private void cargarDescripcion(string descripcion)
+        private void cargarDetalle(string marca, string nombre, string descripcion, decimal precio)
         {
             try
             {
-                txtDescripcionArt.Text = descripcion;
+                txtDetalleArt.Text = marca + "\r\n" + nombre  + "\r\n Precio: " + "$"+precio + "\r\n Descripción: " + descripcion;
+                
             }
             catch (Exception ex)
             {
                 descripcion = "Descripción no disponible.";
-                txtDescripcionArt.Text = descripcion;
+                txtDetalleArt.Text = descripcion;
             }
         }
 
@@ -83,6 +85,7 @@ namespace Presentacion
             dgvArticulos.Columns["Id"].Visible = false;
             dgvArticulos.Columns["UrlImagen"].Visible = false;
             dgvArticulos.Columns["Descripcion"].Visible = false;
+            dgvArticulos.Columns["Precio"].Visible = false;
         }
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
@@ -96,7 +99,7 @@ namespace Presentacion
             {
                 Articulo seleccion = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                 cargarImagen(seleccion.UrlImagen);
-                cargarDescripcion(seleccion.Descripcion);
+                cargarDetalle(seleccion.Marca.Nombre, seleccion.Nombre,seleccion.Descripcion, seleccion.Precio);
             }
             
         }
@@ -162,6 +165,11 @@ namespace Presentacion
         private void txtBuscar_MouseEnter(object sender, EventArgs e)
         {
             lblBusqueda.Text = "Ingrese nombre, marca o categoría del artículo.";
+        }
+
+        private void btnRecargar_Click(object sender, EventArgs e)
+        {
+            cargarGrilla();
         }
     }
 }

@@ -34,9 +34,9 @@
             this.lblCriterio = new System.Windows.Forms.Label();
             this.cbxCriterio = new System.Windows.Forms.ComboBox();
             this.lblRango = new System.Windows.Forms.Label();
-            this.cbxRango = new System.Windows.Forms.ComboBox();
+            this.cbxSubcriterio = new System.Windows.Forms.ComboBox();
             this.lblParametro = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtParametro = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -57,6 +57,7 @@
             this.btnAceptar.TabIndex = 3;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // lblBusquedaAv
             // 
@@ -71,7 +72,7 @@
             // lblCriterio
             // 
             this.lblCriterio.AutoSize = true;
-            this.lblCriterio.Location = new System.Drawing.Point(28, 75);
+            this.lblCriterio.Location = new System.Drawing.Point(30, 75);
             this.lblCriterio.Name = "lblCriterio";
             this.lblCriterio.Size = new System.Drawing.Size(42, 13);
             this.lblCriterio.TabIndex = 34;
@@ -85,6 +86,7 @@
             this.cbxCriterio.Name = "cbxCriterio";
             this.cbxCriterio.Size = new System.Drawing.Size(121, 21);
             this.cbxCriterio.TabIndex = 0;
+            this.cbxCriterio.SelectedIndexChanged += new System.EventHandler(this.cbxCriterio_SelectedIndexChanged);
             // 
             // lblRango
             // 
@@ -95,14 +97,14 @@
             this.lblRango.TabIndex = 36;
             this.lblRango.Text = "Subcriterio:";
             // 
-            // cbxRango
+            // cbxSubcriterio
             // 
-            this.cbxRango.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxRango.FormattingEnabled = true;
-            this.cbxRango.Location = new System.Drawing.Point(91, 110);
-            this.cbxRango.Name = "cbxRango";
-            this.cbxRango.Size = new System.Drawing.Size(121, 21);
-            this.cbxRango.TabIndex = 1;
+            this.cbxSubcriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSubcriterio.FormattingEnabled = true;
+            this.cbxSubcriterio.Location = new System.Drawing.Point(91, 110);
+            this.cbxSubcriterio.Name = "cbxSubcriterio";
+            this.cbxSubcriterio.Size = new System.Drawing.Size(121, 21);
+            this.cbxSubcriterio.TabIndex = 1;
             // 
             // lblParametro
             // 
@@ -113,12 +115,12 @@
             this.lblParametro.TabIndex = 38;
             this.lblParametro.Text = "Parámetro:";
             // 
-            // textBox1
+            // txtParametro
             // 
-            this.textBox1.Location = new System.Drawing.Point(91, 148);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtParametro.Location = new System.Drawing.Point(91, 148);
+            this.txtParametro.Name = "txtParametro";
+            this.txtParametro.Size = new System.Drawing.Size(121, 20);
+            this.txtParametro.TabIndex = 2;
             // 
             // frmBusquedaAvanzada
             // 
@@ -126,9 +128,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(357, 213);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtParametro);
             this.Controls.Add(this.lblParametro);
-            this.Controls.Add(this.cbxRango);
+            this.Controls.Add(this.cbxSubcriterio);
             this.Controls.Add(this.lblRango);
             this.Controls.Add(this.cbxCriterio);
             this.Controls.Add(this.lblCriterio);
@@ -137,7 +139,9 @@
             this.Controls.Add(this.btnAceptar);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "frmBusquedaAvanzada";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Búsqueda Avanzada";
+            this.Load += new System.EventHandler(this.frmBusquedaAvanzada_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,8 +155,8 @@
         private System.Windows.Forms.Label lblCriterio;
         private System.Windows.Forms.ComboBox cbxCriterio;
         private System.Windows.Forms.Label lblRango;
-        private System.Windows.Forms.ComboBox cbxRango;
+        private System.Windows.Forms.ComboBox cbxSubcriterio;
         private System.Windows.Forms.Label lblParametro;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtParametro;
     }
 }

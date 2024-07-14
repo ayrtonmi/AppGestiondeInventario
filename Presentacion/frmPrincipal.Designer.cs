@@ -38,10 +38,11 @@
             this.lblBuscar = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnBusquedaAvanzada = new System.Windows.Forms.Button();
-            this.txtDescripcionArt = new System.Windows.Forms.TextBox();
+            this.txtDetalleArt = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.lblBusqueda = new System.Windows.Forms.Label();
+            this.btnRecargar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -56,7 +57,7 @@
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(542, 413);
+            this.dgvArticulos.Size = new System.Drawing.Size(443, 413);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
@@ -81,15 +82,15 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(104, 8);
+            this.lblDescripcion.Location = new System.Drawing.Point(113, 0);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(66, 13);
+            this.lblDescripcion.Size = new System.Drawing.Size(43, 13);
             this.lblDescripcion.TabIndex = 3;
-            this.lblDescripcion.Text = "Descripción:";
+            this.lblDescripcion.Text = "Detalle:";
             // 
             // bntAgregar
             // 
-            this.bntAgregar.Location = new System.Drawing.Point(560, 25);
+            this.bntAgregar.Location = new System.Drawing.Point(460, 24);
             this.bntAgregar.Name = "bntAgregar";
             this.bntAgregar.Size = new System.Drawing.Size(75, 37);
             this.bntAgregar.TabIndex = 3;
@@ -99,7 +100,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(561, 68);
+            this.btnEliminar.Location = new System.Drawing.Point(461, 67);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 37);
             this.btnEliminar.TabIndex = 4;
@@ -109,7 +110,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(561, 111);
+            this.btnModificar.Location = new System.Drawing.Point(461, 110);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 37);
             this.btnModificar.TabIndex = 5;
@@ -128,7 +129,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(375, 444);
+            this.btnBuscar.Location = new System.Drawing.Point(313, 443);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(120, 21);
             this.btnBuscar.TabIndex = 1;
@@ -138,7 +139,7 @@
             // 
             // btnBusquedaAvanzada
             // 
-            this.btnBusquedaAvanzada.Location = new System.Drawing.Point(375, 471);
+            this.btnBusquedaAvanzada.Location = new System.Drawing.Point(313, 470);
             this.btnBusquedaAvanzada.Name = "btnBusquedaAvanzada";
             this.btnBusquedaAvanzada.Size = new System.Drawing.Size(120, 32);
             this.btnBusquedaAvanzada.TabIndex = 2;
@@ -146,22 +147,22 @@
             this.btnBusquedaAvanzada.UseVisualStyleBackColor = true;
             this.btnBusquedaAvanzada.Click += new System.EventHandler(this.btnBusquedaAvanzada_Click);
             // 
-            // txtDescripcionArt
+            // txtDetalleArt
             // 
-            this.txtDescripcionArt.BackColor = System.Drawing.SystemColors.Window;
-            this.txtDescripcionArt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDescripcionArt.Location = new System.Drawing.Point(6, 29);
-            this.txtDescripcionArt.Multiline = true;
-            this.txtDescripcionArt.Name = "txtDescripcionArt";
-            this.txtDescripcionArt.ReadOnly = true;
-            this.txtDescripcionArt.Size = new System.Drawing.Size(254, 113);
-            this.txtDescripcionArt.TabIndex = 13;
-            this.txtDescripcionArt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDetalleArt.BackColor = System.Drawing.SystemColors.Window;
+            this.txtDetalleArt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDetalleArt.Location = new System.Drawing.Point(6, 29);
+            this.txtDetalleArt.Multiline = true;
+            this.txtDetalleArt.Name = "txtDetalleArt";
+            this.txtDetalleArt.ReadOnly = true;
+            this.txtDetalleArt.Size = new System.Drawing.Size(254, 113);
+            this.txtDetalleArt.TabIndex = 13;
+            this.txtDetalleArt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblDescripcion);
-            this.groupBox1.Controls.Add(this.txtDescripcionArt);
+            this.groupBox1.Controls.Add(this.txtDetalleArt);
             this.groupBox1.Location = new System.Drawing.Point(848, 447);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(266, 148);
@@ -170,10 +171,10 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.ForeColor = System.Drawing.Color.LightGray;
+            this.txtBuscar.ForeColor = System.Drawing.Color.Black;
             this.txtBuscar.Location = new System.Drawing.Point(65, 444);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(304, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(242, 20);
             this.txtBuscar.TabIndex = 15;
             this.txtBuscar.MouseEnter += new System.EventHandler(this.txtBuscar_MouseEnter);
             this.txtBuscar.MouseLeave += new System.EventHandler(this.txtBuscar_MouseLeave);
@@ -188,12 +189,23 @@
             this.lblBusqueda.Size = new System.Drawing.Size(0, 13);
             this.lblBusqueda.TabIndex = 16;
             // 
+            // btnRecargar
+            // 
+            this.btnRecargar.Location = new System.Drawing.Point(461, 373);
+            this.btnRecargar.Name = "btnRecargar";
+            this.btnRecargar.Size = new System.Drawing.Size(84, 64);
+            this.btnRecargar.TabIndex = 17;
+            this.btnRecargar.Text = "Refrescar lista";
+            this.btnRecargar.UseVisualStyleBackColor = true;
+            this.btnRecargar.Click += new System.EventHandler(this.btnRecargar_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1166, 627);
+            this.Controls.Add(this.btnRecargar);
             this.Controls.Add(this.lblBusqueda);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.groupBox1);
@@ -234,10 +246,11 @@
         private System.Windows.Forms.Label lblBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnBusquedaAvanzada;
-        private System.Windows.Forms.TextBox txtDescripcionArt;
+        private System.Windows.Forms.TextBox txtDetalleArt;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label lblBusqueda;
+        private System.Windows.Forms.Button btnRecargar;
     }
 }
 
