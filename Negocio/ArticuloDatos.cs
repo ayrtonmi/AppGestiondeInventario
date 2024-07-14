@@ -33,16 +33,8 @@ namespace Negocio
 
                 articulo.UrlImagen = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("ImagenUrl")) ? null : (string)datos.Lector["ImagenUrl"];
 
+                articulo.Precio = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Precio")) ? 0 : (decimal)datos.Lector["Precio"];
 
-                if (!(datos.Lector["Precio"] is DBNull))
-                {
-
-                    articulo.Precio = (decimal)datos.Lector["Precio"];
-                }
-                else
-                {
-                    articulo.Precio = 0;
-                }
 
                 listado.Add(articulo);
 
@@ -139,21 +131,13 @@ namespace Negocio
 
         public List<Articulo> filtrar(string criterio, string subcriterio, string buscado)
         {
-            
+
             try
             {
                 string consulta = "select A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, ImagenUrl, Precio, A.IdCategoria, A.IdMarca from ARTICULOS A, CATEGORIAS C, MARCAS M where A.IdMarca= M.Id and A.IdCategoria=C.Id and";
                 switch (criterio)
                 {
-             
-                    case "Marca":
-                        consulta += " M.Descripcion like '"+ subcriterio +"' and Nombre like '%"+ buscado +"%'";
-                        break;
-                    case "Categoría":
-                        consulta += " C.Descripcion like '"+ subcriterio +"' and Nombre like '%"+ buscado +"%'";
-                        break;
-    
-                    default:
+                    case "Precio":
                         switch (subcriterio)
                         {
                             case "Mayor a":
@@ -166,14 +150,24 @@ namespace Negocio
                                 consulta += " Precio = " + buscado;
                                 break;
                         }
+                    break;
+                    case "Marca":
+                        consulta += " M.Descripcion like '" + subcriterio + "' and Nombre like '%" + buscado + "%'";
                         break;
+                    case "Categoría":
+                        consulta += " C.Descripcion like '" + subcriterio + "' and Nombre like '%" + buscado + "%'";
+                        break;
+
+                    default:
+                        break;
+
+                    
                 }
 
                 datos.setearConsulta(consulta);
                 datos.ejecutarLectura();
-
                 crearListado();
-               return listado;
+                return listado;
             }
             catch (Exception ex)
             {

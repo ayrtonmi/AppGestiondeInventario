@@ -49,9 +49,9 @@ namespace Presentacion
                 if (opcion == "Precio")
                 {
                     List <string> rango = new List<string> ();
-                    rango.Add("Menor a ");
-                    rango.Add("Mayor a ");
-                    rango.Add("Igual a ");
+                    rango.Add("Menor a");
+                    rango.Add("Mayor a");
+                    rango.Add("Igual a");
                     cbxSubcriterio.DataSource = rango;
                     
                 }
@@ -88,6 +88,7 @@ namespace Presentacion
                 string criterio = cbxCriterio.SelectedItem.ToString();
                 string subcriterio = cbxSubcriterio.SelectedItem.ToString();
                 string buscado = txtParametro.Text;
+                
                 
                 listadoArticulos.DataSource = articulos.filtrar(criterio, subcriterio, buscado);
                 Close();
