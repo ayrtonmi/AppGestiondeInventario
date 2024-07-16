@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Negocio;
 using Dominio;
+using System.Configuration;
+using System.IO;
 
 namespace Presentacion
 {
     public partial class frmAgregar : Form
     {
         private Articulo art = null;
+        private OpenFileDialog archivo =null;
         public frmAgregar()
         {
             InitializeComponent();
@@ -71,8 +74,11 @@ namespace Presentacion
                     datos.agregarArticulo(art);
                     MessageBox.Show("Agregado exitosamente.");
                 }
-                
-                
+
+                if (archivo != null && !(txtImg.Text.ToUpper().Contains("HTTP"))) 
+                {
+                    File.Copy(archivo.FileName, ConfigurationManager.AppSettings["img"] + txtNombre.Text);
+                }
 
                 
                 Close();
@@ -114,6 +120,20 @@ namespace Presentacion
             {
 
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void btnAgregarImg_Click(object sender, EventArgs e)
+        {
+            archivo = new OpenFileDialog();
+            archivo.Filter = "jpg|*.jpg;|png|*.png";
+            if (archivo.ShowDialog() == DialogResult.OK)
+            {
+                txtImg.Text = archivo.FileName;
+                pbxImg.Load(txtImg.Text);
+
+
+                //
             }
         }
     }

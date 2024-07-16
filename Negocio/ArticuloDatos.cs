@@ -70,7 +70,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("insert into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl, Precio) values (@CodigoArt, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @ImgUrl, @Precio");
+                datos.setearConsulta("insert into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl, Precio) values (@CodigoArt, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @ImgUrl, @Precio)");
                 datos.setearParametros("@CodigoArt", nuevoArticulo.Codigo);
                 datos.setearParametros("@Nombre", nuevoArticulo.Nombre);
                 datos.setearParametros("@Descripcion", nuevoArticulo.Descripcion);
