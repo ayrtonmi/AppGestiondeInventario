@@ -138,6 +138,9 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(373, 252);
+            this.MinimumSize = new System.Drawing.Size(373, 252);
             this.Name = "frmBusquedaAvanzada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Búsqueda Avanzada";

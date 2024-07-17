@@ -78,13 +78,52 @@ namespace Presentacion
             }
             
         }
+        private bool validarFiltro()
+        {
+            if (cbxCriterio.SelectedIndex < 0 && cbxSubcriterio.SelectedIndex < 0)
+            {
+                MessageBox.Show("Seleccione criterio y subcriterio para poder buscar.");
+                return true;
+            }
+            if (string.IsNullOrEmpty(txtParametro.Text))
+            {
+                MessageBox.Show("El parámetro de búsqueda no puede estar vacío.");
+                return true;
+            }    
+            
+            if (cbxCriterio.SelectedItem.ToString() == "Precio")
+            {
 
+                if (!(validarNumeros(txtParametro.Text)))
+                {
+                    MessageBox.Show("Ingrese sólo números.");
+                    return true;
+                }
+                    
+            }
+
+            
+
+            return false;
+        }
+
+        private bool validarNumeros(string numero)
+        {
+            foreach (char n in numero)
+            {
+                if(!(char.IsNumber(n)))
+                    return false;
+            }
+            return true;
+        }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             ArticuloDatos articulos = new ArticuloDatos();
             
             try
             {
+                if (validarFiltro())
+                    return;
                 string criterio = cbxCriterio.SelectedItem.ToString();
                 string subcriterio = cbxSubcriterio.SelectedItem.ToString();
                 string buscado = txtParametro.Text;
